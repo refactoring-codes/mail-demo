@@ -1,0 +1,32 @@
+
+
+spring:
+  mail:
+    default-encoding: UTF-8
+    host: #{smtp.host}
+    username: #{user}
+    password: #{pw}
+    port: #{port}
+    properties:
+      mail:
+        smtp:
+          auth: true
+          ssl:
+            enable: true
+            trust: #{smtp.host}
+          starttls:
+            enable: true
+    protocol: smtp
+
+management:
+  endpoint:
+    health:
+      show-details: always
+  health:
+    mail:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include:
+        - health
